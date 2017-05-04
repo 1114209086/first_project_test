@@ -2,6 +2,9 @@ package com.bill.firstapplication.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 
 import com.bill.firstapplication.modol.User;
@@ -22,7 +25,12 @@ public class MyController {
 	}
 
 	@RequestMapping("/index")
-	public String index(){
+	public String index(Map<String, Object> map){
+		User user = new User();
+		user.setName("bill");
+		user.setAge("27");
+		user.setSex("Man");
+		map.put("hello", user);
 //		ModelAndView modelAndView = new ModelAndView("index");
 		return "index";
 	}
