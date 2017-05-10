@@ -1,4 +1,4 @@
-package com.bill.firstapplication.controller;
+package com.bill.firstapplication.controller.impl;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
