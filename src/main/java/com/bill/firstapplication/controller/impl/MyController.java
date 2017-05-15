@@ -1,6 +1,7 @@
 package com.bill.firstapplication.controller.impl;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -40,7 +41,7 @@ public class MyController {
 //		ModelAndView modelAndView = new ModelAndView("index");
 		return "index";
 	}
-	@RequestMapping("/modelmap")
+	@RequestMapping(value="/modelmap" ,method=RequestMethod.POST)
 	public String loginWithModelMap(@RequestParam(defaultValue="杨明飞")String name,Model model){
 		model.addAttribute("name", name);
 		return "modelmap";
