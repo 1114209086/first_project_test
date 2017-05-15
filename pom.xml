@@ -42,7 +42,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-
+<!-- 		添加的对jsp的依赖  -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.apache.tomcat.embed</groupId> -->
+<!-- 			<artifactId>tomcat-embed-jasper</artifactId> -->
+<!-- 			<scope>provided</scope> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

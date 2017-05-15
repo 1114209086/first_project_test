@@ -1,6 +1,7 @@
 package com.bill.firstapplication.controller.impl;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
@@ -8,6 +9,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 
 import com.bill.firstapplication.modol.User;
 
@@ -37,5 +39,10 @@ public class MyController {
 		map.put("hello", user);
 //		ModelAndView modelAndView = new ModelAndView("index");
 		return "index";
+	}
+	@RequestMapping("/modelmap")
+	public String loginWithModelMap(@RequestParam(defaultValue="杨明飞")String name,Model model){
+		model.addAttribute("name", name);
+		return "modelmap";
 	}
 }
