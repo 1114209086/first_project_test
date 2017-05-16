@@ -3,7 +3,6 @@ package com.bill.firstapplication.controller.impl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
 
@@ -16,24 +15,12 @@ import com.bill.firstapplication.controller.BaseController;
 import com.bill.firstapplication.modol.User;
 
 @Controller
-public class MyController implements BaseController{
+public class LoginController implements BaseController{
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
-	
-	@RequestMapping("/username")
-	@ResponseBody
-	public String getUserName(){
-		log.info("getUserName", "in");
-		return "Bill";
-	}
-	@RequestMapping("/user")
-	@ResponseBody
-	public User getUser(){
-		User user = new User();
-		return user;
-	}
 
 	@RequestMapping("/index")
 	public String index(Map<String, Object> map){
+		log.info("getUserName", "in");
 		User user = new User();
 		user.setName("bill");
 		user.setAge("27");
