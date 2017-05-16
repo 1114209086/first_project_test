@@ -8,30 +8,35 @@ import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.bill.firstapplication.controller.BaseController;
-import com.bill.firstapplication.modol.User;
+import com.bill.firstapplication.service.impl.LoginService;
 
 @Controller
 public class LoginController implements BaseController{
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-	@RequestMapping("/index")
-	public String index(Map<String, Object> map){
-		log.info("getUserName", "in");
-		User user = new User();
-		user.setName("bill");
-		user.setAge("27");
-		user.setSex("Man");
-		map.put("hello", user);
-//		ModelAndView modelAndView = new ModelAndView("index");
-		return "index";
+	@Autowired
+	private LoginService service;
+	
+	
+	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String login(Map<String, Object> map){
+		log.debug(this.getClass().getName());
+		return "login";
 	}
-	@RequestMapping(value="/modelmap" ,method=RequestMethod.POST)
-	public String loginWithModelMap(@RequestParam(defaultValue="杨明飞")String name,Model model){
+	@RequestMapping(value="/login" ,method=RequestMethod.POST)
+	public String showWelcomePage(@RequestParam(defaultValue="杨明飞")String name,@RequestParam String password,Model model){
+		boolean isValidUser = service.validationUser(name, password);
+		if (!isValidUser) {
+			return "login";
+		}
 		model.addAttribute("name", name);
-		return "modelmap";
+		return "welcome";
 	}
 }
