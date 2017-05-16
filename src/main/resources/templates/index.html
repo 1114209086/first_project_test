@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<script type="text/javascript" src="js/angular.min.js"></script>
+<script type="text/javascript" th:src="@{/js/angular.min.js}"></script>
 <meta charset="UTF-8"/>
 <title>Insert title here</title>
 </head>
@@ -11,7 +11,7 @@
 <!--   <h1>{{name}}</h1> -->
   <p th:text="${hello.name + '  ,您好 请输入您的用户名和密码'}"></p> 
 </div>
-<form method="post" action="/modelmap"  ng-app="">
+<form method="post" action="/domain/modelmap"  ng-app="">
 <p>账号 : <input type="text" ng-model="account"/></p>
 <p>密码 : <input type="password" ng-model="password"/></p>
 <p><input type="hidden" name="name" th:value="${hello.name}"/></p>

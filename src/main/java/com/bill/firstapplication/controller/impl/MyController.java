@@ -12,10 +12,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import com.bill.firstapplication.controller.BaseController;
 import com.bill.firstapplication.modol.User;
 
 @Controller
-public class MyController {
+public class MyController implements BaseController{
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
 	
 	@RequestMapping("/username")
