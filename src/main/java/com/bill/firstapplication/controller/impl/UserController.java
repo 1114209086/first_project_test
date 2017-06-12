@@ -32,7 +32,6 @@ public class UserController implements BaseController {
 	@ResponseBody
 	public String addUser(@PathVariable Integer id){
 		User user = new User();
-		user.setIdentity(id);
 		user.setName("zhangsan");
 		userService.addUser(user);
 		return "success";
