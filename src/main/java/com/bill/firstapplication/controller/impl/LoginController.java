@@ -29,11 +29,13 @@ public class LoginController implements BaseController{
 	}
 	@RequestMapping(value="/login" ,method=RequestMethod.POST)
 	public String showWelcomePage(@RequestParam String account,@RequestParam String password,Model model){
+		log.debug("The user account is: "+account);
 		boolean isValidUser = service.validationUser(account, password);
 		if (!isValidUser) {
 			return "login";
 		}
-		model.addAttribute("name", account);
+		//登陆之后应该 对用户进行怎么样的操作？保存到 Session中？
+		model.addAttribute("user",service.getCurrentUser());
 		return "welcome";
 	}
 }
