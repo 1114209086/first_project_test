@@ -10,6 +10,8 @@ public class User {
 
 	@Id@GeneratedValue
 	private Integer identity;
+	@Column(unique=true)
+	private String account;
 	@Column(nullable = false)
 	private String name;
 	@Column
@@ -25,8 +27,11 @@ public class User {
 	public Integer getIdentity() {
 		return identity;
 	}
-	public void setIdentity(Integer identity) {
-		this.identity = identity;
+	public String getAccount() {
+		return account;
+	}
+	public void setAccount(String account) {
+		this.account = account;
 	}
 	public String getName() {
 		return name;
@@ -89,7 +94,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [identity=" + identity + ", name=" + name + ", age=" + age + ", sex=" + sex + ", email=" + email
+		return "User [account=" + account + ", name=" + name + ", age=" + age + ", sex=" + sex + ", email=" + email
 				+ ", phoneNumber=" + phoneNumber + ", address=" + address + "]";
 	}
 	

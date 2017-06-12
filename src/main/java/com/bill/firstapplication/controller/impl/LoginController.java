@@ -22,20 +22,18 @@ public class LoginController implements BaseController{
 	@Autowired
 	private LoginService service;
 	
-	
-	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String login(Map<String, Object> map){
 		log.debug(this.getClass().getName());
 		return "login";
 	}
 	@RequestMapping(value="/login" ,method=RequestMethod.POST)
-	public String showWelcomePage(@RequestParam(defaultValue="杨明飞")String name,@RequestParam String password,Model model){
-		boolean isValidUser = service.validationUser(name, password);
+	public String showWelcomePage(@RequestParam String account,@RequestParam String password,Model model){
+		boolean isValidUser = service.validationUser(account, password);
 		if (!isValidUser) {
 			return "login";
 		}
-		model.addAttribute("name", name);
+		model.addAttribute("name", account);
 		return "welcome";
 	}
 }

@@ -7,7 +7,7 @@ import com.bill.firstapplication.service.BaseService;
 @Service
 public class LoginService implements BaseService {
 
-	public boolean validationUser(String userid, String password){
+	public boolean validationUser(String account, String password){
 		return  password.equalsIgnoreCase("123456");
 	}
 }
