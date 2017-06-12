@@ -8,10 +8,13 @@ import javax.persistence.Id;
 @Entity
 public class User {
 
-	@Id@GeneratedValue
+	@Id
+	@GeneratedValue
 	private Integer identity;
-	@Column(unique=true)
+	@Column(unique = true)
 	private String account;
+	@Column
+	private String password;
 	@Column(nullable = false)
 	private String name;
 	@Column
@@ -24,51 +27,92 @@ public class User {
 	private String phoneNumber;
 	@Column
 	private String address;
+
+	public User() {
+
+	}
+
+	public User(String account, String password, String name, String age, String sex, String email, String phoneNumber,
+			String address) {
+		super();
+		this.account = account;
+		this.password = password;
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.address = address;
+	}
+
 	public Integer getIdentity() {
 		return identity;
 	}
+
 	public String getAccount() {
 		return account;
 	}
+
 	public void setAccount(String account) {
 		this.account = account;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getAge() {
 		return age;
 	}
+
 	public void setAge(String age) {
 		this.age = age;
 	}
+
 	public String getSex() {
 		return sex;
 	}
+
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -76,6 +120,7 @@ public class User {
 		result = prime * result + ((identity == null) ? 0 : identity.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -92,10 +137,11 @@ public class User {
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
 		return "User [account=" + account + ", name=" + name + ", age=" + age + ", sex=" + sex + ", email=" + email
 				+ ", phoneNumber=" + phoneNumber + ", address=" + address + "]";
 	}
-	
+
 }
