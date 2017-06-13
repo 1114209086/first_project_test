@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<script type="text/javascript" th:src="@{/js/angular.min.js}"></script>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" action="/domain/registration"  ng-app="">
+<p>账号 : <input type="text" name="account"/></p>
+<p>密码 : <input type="password" name="password"/></p>
+<p>再次确认密码 : <input type="password" name="password2"/></p>
+<p>姓名 : <input type="text" name="name"/></p>
+<p>年龄 : <input type="text" name="age"/></p>
+<p>性别 : <input type="text" name="sex"/></p>
+<p>邮箱 : <input type="text" name="email"/></p>
+<p>电话: <input type="text" name="phoneNumber"/></p>
+<input type="submit" value="提交"/>
+</form>
+</body>
+</html>
