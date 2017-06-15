@@ -26,6 +26,7 @@ public class RegistrationController implements BaseController{
 	}
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String register(User user, Model model){
+		//service这个应该在哪个层次？
 		if (service.addUser(user).equals("success")) {
 			model.addAttribute("user",user);
 			logger.info(user.toString());
